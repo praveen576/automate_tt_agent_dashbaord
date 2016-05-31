@@ -5,4 +5,5 @@ Feature: Create a trip
 
   Scenario: create a trip with  valid data
     When user fills F1 page and submit
+    And user fills F2 and submit
     Then user should get a trip id

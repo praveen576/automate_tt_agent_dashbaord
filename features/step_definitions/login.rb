@@ -9,8 +9,7 @@ When (/^user login as admin$/) do
 end
 
 Then (/^user should be redirected to admin dashboard page$/) do
+  @admin_dash_page = AdminDashboardPage.new
   wait = Selenium::WebDriver::Wait.new(:timeout => 10)
-  wait.until { @driver.current_url.include? 'dashboard' }
-  p @driver.current_url
-  expect(@driver.current_url.include? 'dashboard').to eq true
+  wait.until { @admin_dash_page.displayed? }
 end
