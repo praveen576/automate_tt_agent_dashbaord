@@ -1,4 +1,4 @@
-Given(/^i am on traveller dashboard page$/) do
+Given(/^user is on traveller dashboard page$/) do
   @page = NewTripPage.new
   @page.load
   @page.wait_for_to_location 10
@@ -10,7 +10,7 @@ When(/^user is on trip F1 page$/) do
   destination.native.send_key :return
 end
 
-When(/^user fill F1 page and submit$/) do
+When(/^user fills F1 page and submit$/) do
   @page.fill_and_submit_F1
 end
 
