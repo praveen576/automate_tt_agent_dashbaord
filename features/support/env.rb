@@ -9,7 +9,7 @@ require 'rspec/expectations'
 # require 'capybara/poltergeist'
 
 # Capybara.register_driver :poltergeist do |app|
-#   options = {}
+#   options = { browser: :chrome, timeout: 100 }
 #   Capybara::Poltergeist::Driver.new(app, options)
 # end
 
@@ -19,13 +19,19 @@ require 'rspec/expectations'
 #   Capybara.current_driver = :poltergeist
 #   @driver = page.driver
 # end
-#--End Section-1-----------------------------------------------------------
+# --End Section-1-----------------------------------------------------------
 
 # Begin Section-2---Uncomment section-2 and comment section-1 for browser testing
 Capybara.default_driver = :selenium
 
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, :browser => :chrome)
+end
+
 Before do
+  Capybara.current_driver = :selenium
   @driver = page.driver
-  page.driver.browser.manage.window.maximize
+  # page.driver.browser.manage.window.maximize
+  @wait = Selenium::WebDriver::Wait.new timeout: 20
 end
 #--End Section-2-----------------------------------------------------------

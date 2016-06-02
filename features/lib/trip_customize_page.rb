@@ -12,6 +12,7 @@ class TripCustomizePage < SitePrism::Page
   end
 
   def fill_and_submit_F2
+    wait_for_hotel_category 20
     hotel_category.click
     submit_trip_f2.click
   end
