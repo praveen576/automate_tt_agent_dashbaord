@@ -1,8 +1,10 @@
 Feature: Create a trip
 
-  Background: Given i am on traveller dashboard page
-  	Given i am on traveller dashboard page
+  Background: Given user is on traveller dashboard page
+  	Given user is on traveller dashboard page
 
   Scenario: create a trip with  valid data
-    When user fill F1 page and submit
+    When user fills F1 page and submit
     Then user should get a trip id
+    When user fills F2 and submit
+    Then user should get home page
